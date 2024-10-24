@@ -1,7 +1,8 @@
 // Note this require the NPM libraries imported, including sinon, chai, and sinon-chai. 
 // The sinon.restore() call is necessary due to the use of stubbing.
 import sinon from "sinon";
-import chai from "chai";
+import { expect } from "chai";
+
 import sinonChai from "sinon-chai";
 import { ethers as hardhatEthers, waffle } from "hardhat";
 import { Contract, Wallet } from "ethers";

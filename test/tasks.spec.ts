@@ -1,4 +1,4 @@
-import { deployTestContract, getTestWallet } from "./test-helper";
+import { deployTestContract, getTestWallet } from "./test-helpers";
 import { waffle, run } from "hardhat";
 import { expect } from "chai";
 import sinon from "sinon";

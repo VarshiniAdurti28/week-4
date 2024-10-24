@@ -1,10 +1,30 @@
 import { ethers, waffle } from "hardhat";
-import { expect } from "chai";
+
+
 import { Contract, Wallet } from "ethers";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import sinon from "sinon";
-import { deployTestContract } from "./test-helper";
+import { deployTestContract } from "./test-helpers";
 import * as provider from "../lib/provider";
+let expect;
+describe("MyNFT Contract", function () {
+ 
+
+  before(async function () {
+    // Use dynamic import for chai
+    const chai = await import("chai");
+    expect = chai.expect; // Assign expect from chai
+  });
+
+  it("should deploy the contract correctly", async function () {
+    const contractFactory = await ethers.getContractFactory("MyNFT");
+    const deployedContract = await contractFactory.deploy();
+    
+    // Check that the contract address is valid
+    expect(deployedContract.address).to.properAddress; // This checks that the address is properly formed
+  });
+});
+
 
 describe("MyNFT", () => {
   const TOKEN_URI = "http://example.com/ip_records/42";
